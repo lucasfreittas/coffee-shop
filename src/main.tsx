@@ -5,14 +5,17 @@ import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from './Styles/Themes/default'
 import GlobalStyle from './Styles/global';
 
-import { Home } from './Pages/Home'
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from './Routes/router';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
-        <Home />
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>  
     </ThemeProvider> 
   </React.StrictMode>,
 )
