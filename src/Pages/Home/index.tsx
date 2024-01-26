@@ -2,12 +2,18 @@ import { HomeContainer,
         BannerHero,
         TextContainer,
         TitleContainer,
-        BulletsContainer
+        BulletsContainer,
+        BannerHeroBG,
+        ProductsContainer,
+        Products,
 } from "./styles";
 
 import BannerHeroImg from '../../Assets/coffe-bannerHero.png'
+import BannerHeroBGimg  from '../../Assets/Banner-hero-background.svg'
 
-import { ShoppingCart, MapPin } from "@phosphor-icons/react";
+import { ShoppingCart, Package, Timer, Coffee } from "@phosphor-icons/react";
+
+import { CoffeeCard } from "../../Components/CoffeeCard";
 
 export function Home(){
     return(
@@ -20,13 +26,20 @@ export function Home(){
                     </ TitleContainer>
                     <BulletsContainer>
                         <div><div className="icon1"><ShoppingCart size={16} weight="fill" /></div> <span>Compra simples e segura</span> </div>
-                        <div><div className="icon2"><ShoppingCart size={16} weight="fill" /></div> <span>Embalagem mantém o café intacto</span> </div>
-                        <div><div className="icon3"><ShoppingCart size={16} weight="fill" /></div> <span>Entrega rápida e rastreada</span> </div>
-                        <div><div className="icon4"><ShoppingCart size={16} weight="fill" /></div> <span>O café chega fresquinho até você</span> </div>
+                        <div><div className="icon2"><Package size={16} weight="fill" /></div> <span>Embalagem mantém o café intacto</span> </div>
+                        <div><div className="icon3"><Timer size={16} weight="fill" /></div> <span>Entrega rápida e rastreada</span> </div>
+                        <div><div className="icon4"><Coffee size={16} weight="fill" /></div> <span>O café chega fresquinho até você</span> </div>
                     </BulletsContainer>
                 </TextContainer>
-                <img src={BannerHeroImg} alt="" />
+                <img src={BannerHeroImg} className='bannerHeroImg'alt="" />
+                <BannerHeroBG src={BannerHeroBGimg} />
            </BannerHero>
+           <ProductsContainer>
+                <h1>Nossos Cafés</h1>
+                <Products>
+                    <CoffeeCard />
+                </Products>
+           </ProductsContainer>
         </HomeContainer>
     );
 };

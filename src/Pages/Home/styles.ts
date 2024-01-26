@@ -1,20 +1,33 @@
 import styled from "styled-components";
 
+
 export const HomeContainer = styled.div`
     width: 100%;
     margin-top: 9.6rem;
 `;
 
 export const BannerHero = styled.div`
+   
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     gap: 5.6rem;
 
-    > img {
+    .bannerHeroImg {
         width: 47.6rem;
     };
+
+`;
+
+export const BannerHeroBG = styled.img`
+    position: absolute;
+    object-fit: cover;
+    width: 100vw;
+    height: 54.4rem;
+    top: 104;
+    left: 0;
 `;
 
 export const TextContainer = styled.div`
@@ -92,4 +105,21 @@ export const BulletsContainer = styled.div`
         line-height: 130%;
         color: ${props => props.theme.GRAY_700};
     }
+`;
+
+export const ProductsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 14rem 0;
+
+    > h1 {
+        font-size: 3.2rem;
+    }
+`;
+
+export const Products = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 4rem 0;
 `;

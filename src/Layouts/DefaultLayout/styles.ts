@@ -8,4 +8,6 @@ export const DefaultLayoutContainer = styled.div`
     justify-content: center;
 
     padding: 0 16rem;
+    max-width: 144rem;
+    margin: auto;
 `;
