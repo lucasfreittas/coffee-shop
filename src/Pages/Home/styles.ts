@@ -122,4 +122,6 @@ export const Products = styled.div`
     flex-wrap: wrap;
     width: 100%;
     padding: 4rem 0;
+    row-gap: 4rem;
+    column-gap: 3.2rem;
 `;

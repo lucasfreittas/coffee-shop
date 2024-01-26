@@ -37,7 +37,7 @@ export function Home(){
            <ProductsContainer>
                 <h1>Nossos Cafés</h1>
                 <Products>
-                    <CoffeeCard />
+                    <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> 
                 </Products>
            </ProductsContainer>
         </HomeContainer>
