@@ -9,5 +9,6 @@ export const DefaultLayoutContainer = styled.div`
 
     padding: 0 16rem;
     max-width: 144rem;
+    width: 100%;
     margin: auto;
 `;

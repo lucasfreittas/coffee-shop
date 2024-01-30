@@ -14,6 +14,7 @@ export const BannerHero = styled.div`
     justify-content: space-between;
     width: 100%;
     gap: 5.6rem;
+    
 
     .bannerHeroImg {
         width: 47.6rem;
@@ -28,6 +29,7 @@ export const BannerHeroBG = styled.img`
     height: 54.4rem;
     top: 104;
     left: 0;
+    
 `;
 
 export const TextContainer = styled.div`

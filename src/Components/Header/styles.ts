@@ -10,7 +10,7 @@ export const HeaderContainer = styled.header`
         height: 4rem;
     };
 
-    div {
+    nav {
         display: flex;
         gap: 1.2rem;
     };

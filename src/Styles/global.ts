@@ -6,6 +6,7 @@ export default createGlobalStyle`
         padding: 0px;
         box-sizing: border-box;
         
+        
     };
 
     html{
@@ -19,6 +20,7 @@ export default createGlobalStyle`
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: antialiased;
+        overflow-x: hidden;
     };
 
     h1, h2, h3, h4{
