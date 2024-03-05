@@ -1,3 +1,4 @@
+import { TitleContainer } from '../AddressForm/styles';
 import { PaymentFormContainer, Form } from './styles';
 
 import { CurrencyDollar, CreditCard, Bank, Money } from "@phosphor-icons/react";
@@ -5,22 +6,25 @@ import { CurrencyDollar, CreditCard, Bank, Money } from "@phosphor-icons/react";
 export function PaymentForm(){
     return(
         <PaymentFormContainer>
-              <div>
-                    <div><CurrencyDollar size={22}/><p>Pagamento</p></div>
+            <TitleContainer>
+                <CurrencyDollar size={22}/>
+                <div>
+                    <p>Pagamento</p>
                     <span>O pagamento é feito na entrega. Escolha a forma que deseja pagar</span>
                 </div>
+            </TitleContainer>    
                 <Form name="paymentForm">
-                    <label>
-                        <input type="radio" name="paymentForm" value="Credit" />
-                        <CreditCard size={16} />Cartão de Crédito
+                    <label htmlFor='credit'>
+                        <input type="radio" name="paymentForm" value="Credit" id='credit' />
+                        <CreditCard size={16} />CARTÃO DE CRÉDITO
                     </label>
-                    <label>
-                        <input type="radio" name="paymentForm" value="Debit" />
-                        <Bank size={16} />Cartão de Débito
+                    <label htmlFor='debit'>
+                        <input type="radio" name="paymentForm" value="Debit" id='debit'/>
+                        <Bank size={16} />CARTÃO DE DÉBITO
                     </label>
-                    <label>
-                        <input type="radio" name="paymentForm" value="Cash" />
-                        <Money size={16} />Dinheiro
+                    <label htmlFor='cash' className='checked'>
+                        <input type="radio" name="paymentForm" value="Cash" id='cash'/>
+                        <Money size={16} />DINHEIRO
                     </label>
                 </Form>
         </PaymentFormContainer>

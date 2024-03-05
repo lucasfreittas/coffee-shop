@@ -3,7 +3,7 @@ import { AddressForm } from '../../Components/AddressForm';
 import { Cart } from '../../Components/Cart';
 
 import { CheckoutContainer,
-        AddressContainer,
+        InfoContainer,
         CartContainer,}
         from './styles';
 
@@ -12,11 +12,11 @@ import { CheckoutContainer,
 export function Checkout(){
     return(
         <CheckoutContainer>
-                <AddressContainer>
+                <InfoContainer>
                     <h1>Complete seu pedido</h1>
                     <AddressForm />
                     <PaymentForm /> 
-                </AddressContainer>
+                </InfoContainer>
                 <CartContainer>
                     <h1>Cafés Selecionados</h1>
                     <Cart />

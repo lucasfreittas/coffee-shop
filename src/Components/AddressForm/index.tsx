@@ -1,20 +1,23 @@
-import { AddressFormContainer, Form } from './styles';
+import { AddressFormContainer, Form, TitleContainer } from './styles';
 import { MapPinLine, CurrencyDollar, CreditCard, Bank, Money } from "@phosphor-icons/react";
 
 export function AddressForm(){
     return(
         <AddressFormContainer>
-            <div>
-                <div><MapPinLine size={22}/><p>Endereço de Entrega</p></div>
+            <TitleContainer>
+                <MapPinLine size={22}/>
+                <div>
+                    <p>Endereço de Entrega</p>
                     <span>Informe o endereço onde deseja receber seu pedido</span>
                 </div>
-                <Form>
-                <input type="number" placeholder='CEP' />
-                <input type="text" placeholder='Rua' />
+            </TitleContainer>
+            <Form>
+                <input type="number" placeholder='CEP' max='99999999' />
+                <input type="text" placeholder='Rua' className='addressInput' />
                 <input type="number" placeholder='Número' />
-                <input type="text" placeholder='Complemento' />
+                <input type="text" placeholder='Complemento' className='complementInput' />
                 <input type="text" placeholder='Bairro' />
-                <input type="text" placeholder='Cidade' />
+                <input type="text" placeholder='Cidade' className='cityInput' />
 
                 <select name="addressForm">
                     <option value="" disabled selected>UF</option>       
@@ -45,7 +48,7 @@ export function AddressForm(){
                     <option value="SE">SE</option>
                     <option value="TO">TO</option>
                 </select>
-                </ Form>
+            </ Form>
         </AddressFormContainer>
     )
 }
