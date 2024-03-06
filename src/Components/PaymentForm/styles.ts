@@ -4,7 +4,6 @@ export const PaymentFormContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    max-width: 64rem;
     padding: 4rem;
     background-color: ${props => props.theme.GRAY_200};
     border-radius: 0.6rem;
@@ -12,7 +11,6 @@ export const PaymentFormContainer = styled.div`
 
 export const Form = styled.form`
     display: flex;
-    flex-wrap: wrap;
     flex: 1;
     width: 100%;
     row-gap: 1.6rem;
@@ -23,6 +21,7 @@ export const Form = styled.form`
         align-items: center;
         justify-content: center;
         gap: 1.2rem;
+        width: 100%;
         padding: 1.6rem 2rem 1.6rem 1.6rem;
         background-color: ${props => props.theme.GRAY_400};
         border-radius: 0.6rem;
@@ -57,7 +56,7 @@ export const TitleContainer = styled.div`
     margin-bottom: 3.2rem;
 
     > svg {
-        color: ${props => props.theme.YELLOW_700};
+        color: ${props => props.theme.PURPLE_500};
     };
 
     > div p {

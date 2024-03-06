@@ -2,10 +2,7 @@ import { PaymentForm } from '../../Components/PaymentForm';
 import { AddressForm } from '../../Components/AddressForm';
 import { Cart } from '../../Components/Cart';
 
-import { CheckoutContainer,
-        InfoContainer,
-        CartContainer,}
-        from './styles';
+import { CheckoutContainer, InfoContainer, CartContainer }from './styles';
 
 
 

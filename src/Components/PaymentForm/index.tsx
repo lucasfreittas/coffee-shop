@@ -1,4 +1,4 @@
-import { TitleContainer } from '../AddressForm/styles';
+import { TitleContainer } from './styles';
 import { PaymentFormContainer, Form } from './styles';
 
 import { CurrencyDollar, CreditCard, Bank, Money } from "@phosphor-icons/react";
