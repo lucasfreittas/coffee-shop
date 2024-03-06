@@ -6,6 +6,7 @@ export const CheckoutContainer = styled.div`
     justify-content: space-between;
     gap: 3.2rem;
     margin-top: 2.4rem;
+    padding-bottom: 14rem;
    
 `;
 

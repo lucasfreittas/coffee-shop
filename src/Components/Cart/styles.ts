@@ -5,7 +5,7 @@ export const CartContainer = styled.div`
     padding: 4rem;
     border-radius: 0.6rem 4.4rem 0.6rem 4.4rem;
 
-    > button[type=submit]{
+    button[type=submit]{
         display: flex;
         align-items: center;
         justify-content: center;
