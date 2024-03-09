@@ -14,8 +14,11 @@ import BannerHeroBGimg  from '../../Assets/Banner-hero-background.svg'
 import { ShoppingCart, Package, Timer, Coffee } from "@phosphor-icons/react";
 
 import { CoffeeCard } from "../../Components/CoffeeCard";
+import { useProducts } from '../../Hooks/ProductsData';
 
 export function Home(){
+    const { productsList } = useProducts();
+
     return(
         <HomeContainer>
            <BannerHero>
@@ -37,7 +40,14 @@ export function Home(){
            <ProductsContainer>
                 <h1>Nossos Cafés</h1>
                 <Products>
-                    <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> <CoffeeCard /> 
+                    {productsList && (
+                        productsList.map((product) => (
+                            <CoffeeCard
+                                key={product.id} 
+                                coffeedata={product}
+                            />
+                        ))
+                    )}
                 </Products>
            </ProductsContainer>
         </HomeContainer>

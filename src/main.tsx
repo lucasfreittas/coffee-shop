@@ -8,13 +8,16 @@ import GlobalStyle from './Styles/global';
 import { BrowserRouter } from 'react-router-dom';
 import { Router } from './Routes/router';
 
+import { ProductsProvider } from './Hooks/ProductsData'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
         <BrowserRouter>
-          <Router />
+          <ProductsProvider>
+            <Router />
+          </ProductsProvider>
         </BrowserRouter>  
     </ThemeProvider> 
   </React.StrictMode>,
