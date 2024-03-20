@@ -2,21 +2,63 @@ import { PaymentForm } from '../../Components/PaymentForm';
 import { AddressForm } from '../../Components/AddressForm';
 import { Cart } from '../../Components/Cart';
 
+import { useNavigate } from "react-router-dom";
+
 import { CheckoutContainer, InfoContainer, CartContainer }from './styles';
 
+import { FormProvider, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod"; 
+import * as zod from 'zod' 
+import { useUser } from '../../Hooks/UserData';
+
+const newFormValidationSchema = zod.object({
+    zipCode: zod.number(),
+    street: zod.string(),
+    addressNumber: zod.number(),
+    complement: zod.string(),
+    neighborhood: zod.string(),
+    city: zod.string(),
+    district: zod.string(),
+    
+  })
+  
+  type NewFormData = zod.infer<typeof newFormValidationSchema>
 
 
 export function Checkout(){
+    const navigate = useNavigate();
+    const {setZipCode, setStreet, setAddressNumber, setNeighborhood, setCity, setDistrict} = useUser();
+
+    const newForm = useForm<NewFormData>({
+        resolver: zodResolver(newFormValidationSchema),
+
+      });
+    
+    const { handleSubmit } = newForm
+
+    function handleSendForm(data: NewFormData){
+        setZipCode(data.zipCode);
+        setStreet(data.street);
+        setAddressNumber(data.addressNumber);
+        setNeighborhood(data.neighborhood);
+        setCity(data.city);
+        setDistrict(data.district);
+
+        navigate('/success');
+    };
+    
     return(
-        <CheckoutContainer>
+        <CheckoutContainer onSubmit={handleSubmit(handleSendForm)}>
                 <InfoContainer>
                     <h1>Complete seu pedido</h1>
-                    <AddressForm />
+                    <FormProvider {...newForm}>
+                        <AddressForm/>
+                    </FormProvider>
                     <PaymentForm /> 
                 </InfoContainer>
                 <CartContainer>
                     <h1>Cafés Selecionados</h1>
-                    <Cart />
+                    <Cart handleSubmitForm={handleSubmit(handleSendForm)} />
                 </CartContainer>
         </CheckoutContainer>
     );

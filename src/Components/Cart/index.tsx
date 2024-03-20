@@ -3,7 +3,7 @@ import Cappucino from '../../Assets/Cappucino-img.png'
 import { Minus, Plus, Trash } from "@phosphor-icons/react";
 import { NavLink } from 'react-router-dom';
 
-export function Cart(){
+export function Cart({handleSubmitForm}: any){
     return(
         <CartContainer>
             <ProductContainer>
@@ -57,9 +57,9 @@ export function Cart(){
                 <div className='totalAmount'><h2>Total</h2> <h2>R$ 33,20</h2></div>
             </TotalResume>
 
-            <NavLink to='/success' title='Success'>
-                <button type='submit'>CONFIRMAR PEDIDO</button>
-            </NavLink>
+            {/* <NavLink to='/success' title='Success'> */}
+                <button type='submit' onClick={handleSubmitForm}>CONFIRMAR PEDIDO</button>
+            {/* </NavLink> */}
 
             
         </CartContainer>

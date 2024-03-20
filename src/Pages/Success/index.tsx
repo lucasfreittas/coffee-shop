@@ -4,10 +4,13 @@ import DeliveryIllustration from '../../Assets/Delivery Illustration.svg';
 import LocationIcon from '../../Assets/location icon.svg';
 import TimeIcon from '../../Assets/time icon.png';
 import PriceIcon from '../../Assets/price icon.png';
+import { useUser } from '../../Hooks/UserData';
 
 
 
 export function Success(){
+    const { zipCode, street, addressNumber, neighborhood, city, district } = useUser();
+
     return(
         <SuccessContainer>
             <TextContainer>
@@ -18,8 +21,8 @@ export function Success(){
                     <Address>
                         <img src={LocationIcon} alt="Ícone de localização" />
                         <div>
-                            <p>Entrega em <b>Rua João Daniel Martinelli, 102</b></p>
-                            <p>Farrapos - Porto Algre, RS</p>
+                            <p>Entrega em <b>{street}, {addressNumber}</b></p>
+                            <p>{neighborhood} - {city}, {district}</p>
                         </div>
                     </Address>
                     <Time>

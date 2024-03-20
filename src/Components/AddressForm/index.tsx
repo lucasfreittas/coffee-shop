@@ -1,7 +1,11 @@
+import { useForm, useFormContext } from 'react-hook-form';
 import { AddressFormContainer, Form, TitleContainer } from './styles';
-import { MapPinLine, CurrencyDollar, CreditCard, Bank, Money } from "@phosphor-icons/react";
+import { MapPinLine } from "@phosphor-icons/react";
+
 
 export function AddressForm(){
+    const { register } = useFormContext()
+
     return(
         <AddressFormContainer>
             <TitleContainer>
@@ -12,14 +16,14 @@ export function AddressForm(){
                 </div>
             </TitleContainer>
             <Form>
-                <input type="number" placeholder='CEP' max='99999999' />
-                <input type="text" placeholder='Rua' className='addressInput' />
-                <input type="number" placeholder='Número' />
-                <input type="text" placeholder='Complemento' className='complementInput' />
-                <input type="text" placeholder='Bairro' />
-                <input type="text" placeholder='Cidade' className='cityInput' />
+                <input type="number" placeholder='CEP' max='99999999999' {...register('zipCode', { valueAsNumber: true })} />
+                <input type="text" placeholder='Rua' className='addressInput' {...register('street')} />
+                <input type="number" placeholder='Número' {...register('addressNumber', { valueAsNumber: true })} />
+                <input type="text" placeholder='Complemento' className='complementInput' {...register('complement')} />
+                <input type="text" placeholder='Bairro' {...register('neighborhood')}/>
+                <input type="text" placeholder='Cidade' className='cityInput' {...register('city')}/>
 
-                <select name="addressForm">
+                <select {...register('district')}>
                     <option value="" disabled selected>UF</option>       
                     <option value="AC">AC</option>
                     <option value="AL">AL</option>
