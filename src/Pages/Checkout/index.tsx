@@ -12,7 +12,7 @@ import * as zod from 'zod'
 import { useUser } from '../../Hooks/UserData';
 
 const newFormValidationSchema = zod.object({
-    zipCode: zod.number(),
+    zipCode: zod.string(),
     street: zod.string(),
     addressNumber: zod.number(),
     complement: zod.string(),
@@ -27,7 +27,7 @@ const newFormValidationSchema = zod.object({
 
 export function Checkout(){
     const navigate = useNavigate();
-    const {setZipCode, setStreet, setAddressNumber, setNeighborhood, setCity, setDistrict} = useUser();
+    const {setZipCode, setStreet, setAddressNumber, setNeighborhood, setCity, setDistrict, setComplement} = useUser();
 
     const newForm = useForm<NewFormData>({
         resolver: zodResolver(newFormValidationSchema),
@@ -43,6 +43,7 @@ export function Checkout(){
         setNeighborhood(data.neighborhood);
         setCity(data.city);
         setDistrict(data.district);
+        setComplement(data.complement);
 
         navigate('/success');
     };

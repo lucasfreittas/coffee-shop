@@ -9,7 +9,7 @@ import { useUser } from '../../Hooks/UserData';
 
 
 export function Success(){
-    const { zipCode, street, addressNumber, neighborhood, city, district } = useUser();
+    const { userAddress } = useUser();
 
     return(
         <SuccessContainer>
@@ -21,8 +21,8 @@ export function Success(){
                     <Address>
                         <img src={LocationIcon} alt="Ícone de localização" />
                         <div>
-                            <p>Entrega em <b>{street}, {addressNumber}</b></p>
-                            <p>{neighborhood} - {city}, {district}</p>
+                            <p>Entrega em <b>{userAddress.street}, {userAddress.addressNumber}</b></p>
+                            <p>{userAddress.neighborhood} - {userAddress.city}, {userAddress.district}</p>
                         </div>
                     </Address>
                     <Time>

@@ -1,56 +1,75 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import { ReactNode, createContext, useContext, useEffect, useState } from "react";
 
 interface UserTypes {
-    setZipCode: (ZipCode: number) => void,
-    zipCode: number,
-
-    setStreet: (street: string) => void,
-    street: string,
-
+    setZipCode: (ZipCode: string) => void,
+    setStreet: (Street: string) => void,
     setAddressNumber: (AddressNumber: number) => void,
-    addressNumber: number,
-
     setNeighborhood: (Neighborhood: string) => void,
-    neighborhood: string,
-
     setCity: (City: string) => void,
-    city: string,
-
     setDistrict: (streDistrictet: string) => void,
-    district: string,
+    setComplement: (streDistrictet: string) => void,
+
+    userAddress:{
+        zipCode: string,
+        street: string,
+        addressNumber: number,
+        neighborhood: string,
+        city: string,
+        district: string,
+        complement: string,
+    };
 };
 
 
 export const UserContext = createContext({} as UserTypes) ;
 
 export function UserProvider({children}:{children: ReactNode}){
-    const [ zipCode, setZipCode ] = useState(0);
+    const [ zipCode, setZipCode ] = useState('');
     const [ street, setStreet ] = useState('');
     const [ addressNumber, setAddressNumber ] = useState(0)
     const [ neighborhood, setNeighborhood ] = useState('');
     const [ city, setCity ] = useState('');
     const [ district, setDistrict ] = useState('');
+    const [ complement, setComplement ] = useState('');
+
+    const userAddress = {
+        zipCode,
+        street,
+        addressNumber,
+        neighborhood,
+        city,
+        district,
+        complement
+    };
     
+    useEffect(() => {
+        const stateJSON = JSON.stringify(userAddress)
+        localStorage.setItem('@ignite-caffe:user-address-1.0.0', stateJSON)
+
+    }, [userAddress]);
+
+    useEffect(() => {
+        const storedUserAddress = localStorage.getItem('@ignite-caffe:user-address-1.0.0');
+        
+        if(storedUserAddress){
+            const parsedUserAddress = JSON.parse(storedUserAddress)
+            setStreet(parsedUserAddress.street)
+            console.log(street)
+        };
+
+    }, [userAddress]);
 
     return(
         <UserContext.Provider value={{
-            zipCode: zipCode,
-            setZipCode: setZipCode,
+            setZipCode,
+            setStreet,
+            setAddressNumber,
+            setNeighborhood,
+            setCity,
+            setDistrict,
+            setComplement,
 
-            street: street,
-            setStreet: setStreet,
-
-            addressNumber: addressNumber,
-            setAddressNumber: setAddressNumber,
-
-            neighborhood: neighborhood,
-            setNeighborhood: setNeighborhood,
-
-            city: city,
-            setCity: setCity,
-
-            district: district,
-            setDistrict: setDistrict,
+            userAddress
         }}>
             {children}
         </UserContext.Provider>
