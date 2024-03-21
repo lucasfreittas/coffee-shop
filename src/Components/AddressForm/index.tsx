@@ -1,12 +1,11 @@
-import { useForm, useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import { AddressFormContainer, Form, TitleContainer } from './styles';
 import { MapPinLine } from "@phosphor-icons/react";
 import { useUser } from '../../Hooks/UserData';
 
 
 export function AddressForm(){
-    const { register, } = useFormContext()
-    const { } = useForm();
+    const { register } = useFormContext()
     const { userAddress } = useUser();
 
 

@@ -10,6 +10,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod"; 
 import * as zod from 'zod' 
 import { useUser } from '../../Hooks/UserData';
+import { useEffect } from 'react';
 
 const newFormValidationSchema = zod.object({
     zipCode: zod.string(),
@@ -19,7 +20,7 @@ const newFormValidationSchema = zod.object({
     neighborhood: zod.string(),
     city: zod.string(),
     district: zod.string(),
-    
+    payment: zod.string(),
   })
   
   type NewFormData = zod.infer<typeof newFormValidationSchema>
@@ -27,7 +28,7 @@ const newFormValidationSchema = zod.object({
 
 export function Checkout(){
     const navigate = useNavigate();
-    const {setZipCode, setStreet, setAddressNumber, setNeighborhood, setCity, setDistrict, setComplement} = useUser();
+    const {setZipCode, setStreet, setAddressNumber, setNeighborhood, setCity, setDistrict, setComplement, setPayment} = useUser();
 
     const newForm = useForm<NewFormData>({
         resolver: zodResolver(newFormValidationSchema),
@@ -35,6 +36,8 @@ export function Checkout(){
       });
     
     const { handleSubmit } = newForm
+
+    const { userAddress } = useUser();
 
     function handleSendForm(data: NewFormData){
         setZipCode(data.zipCode);
@@ -44,18 +47,20 @@ export function Checkout(){
         setCity(data.city);
         setDistrict(data.district);
         setComplement(data.complement);
+        setPayment(data.payment)
 
         navigate('/success');
     };
+
     
     return(
         <CheckoutContainer onSubmit={handleSubmit(handleSendForm)}>
                 <InfoContainer>
                     <h1>Complete seu pedido</h1>
                     <FormProvider {...newForm}>
-                        <AddressForm/>
+                        {userAddress.payment && <AddressForm/>}
+                        <PaymentForm /> 
                     </FormProvider>
-                    <PaymentForm /> 
                 </InfoContainer>
                 <CartContainer>
                     <h1>Cafés Selecionados</h1>

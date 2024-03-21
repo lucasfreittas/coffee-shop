@@ -20,7 +20,7 @@ export const Form = styled.form`
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 1.2rem;
+        gap: 1rem;
         width: 100%;
         padding: 1.6rem 2rem 1.6rem 1.6rem;
         background-color: ${props => props.theme.GRAY_400};
@@ -47,7 +47,11 @@ export const Form = styled.form`
     .checked{
         background-color: ${props => props.theme.PURPLE_300};
         border: 1px solid ${props => props.theme.PURPLE_500};
-    }
+
+        &:hover{
+            background-color: ${props => props.theme.PURPLE_300};
+        };
+    };
 `;
 
 export const TitleContainer = styled.div`

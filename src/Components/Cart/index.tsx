@@ -1,7 +1,7 @@
 import { CartContainer, ProductContainer, Counter, Price, TotalResume, ProductCard } from './styles';
 import Cappucino from '../../Assets/Cappucino-img.png'
 import { Minus, Plus, Trash } from "@phosphor-icons/react";
-import { NavLink } from 'react-router-dom';
+
 
 export function Cart({handleSubmitForm}: any){
     return(

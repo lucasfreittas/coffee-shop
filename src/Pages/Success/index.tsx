@@ -11,6 +11,30 @@ import { useUser } from '../../Hooks/UserData';
 export function Success(){
     const { userAddress } = useUser();
 
+    function handlePaymentName(){
+        let paymentName;
+
+        switch(userAddress.payment){
+            case 'Credit':
+                paymentName = 'Cartão de Crédito';
+                break;
+
+            case 'Debit':
+                paymentName = 'Cartão de Débito';
+                break;
+            
+            case 'Cash':
+                paymentName = 'Dinheiro';
+                break;
+            
+            default:
+                paymentName = 'Método de pagamento inváldio';
+                break
+            };
+
+        return paymentName
+    };
+
     return(
         <SuccessContainer>
             <TextContainer>
@@ -36,7 +60,7 @@ export function Success(){
                         <img src={PriceIcon} alt="Ícone de Preço" />
                         <div>
                             <p>Pagamento na entrega</p>
-                            <b>Cartão de Crédito</b>
+                            <b>{handlePaymentName()}</b>
                         </div>
                     </Payment>
                 </DeliveryDetails>
