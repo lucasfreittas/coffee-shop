@@ -10,17 +10,20 @@ import { Router } from './Routes/router';
 
 import { ProductsProvider } from './Hooks/ProductsData';
 import { UserProvider } from './Hooks/UserData';
+import { CartProvider } from './Hooks/Cart';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
         <BrowserRouter>
-          <UserProvider>
-            <ProductsProvider>
-              <Router />
-            </ProductsProvider>
-          </UserProvider>
+          <CartProvider>
+            <UserProvider>
+              <ProductsProvider>
+                <Router />
+              </ProductsProvider>
+            </UserProvider>
+          </CartProvider>
         </BrowserRouter>  
     </ThemeProvider> 
   </React.StrictMode>,

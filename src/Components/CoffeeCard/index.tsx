@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 import { CoffeeContainer, Tags, Price, Counter, AmountContainer } from "./styles";
 import { Plus, Minus, ShoppingCart } from "@phosphor-icons/react";
+import { useCart } from "../../Hooks/Cart";
 
 interface CoffeeType{
     id: number,
@@ -7,7 +9,7 @@ interface CoffeeType{
     description: string,
     tags: string[],
     price: number,
-    image: string
+    image: string,
 };
 
 interface CoffeeCardProps {
@@ -16,6 +18,33 @@ interface CoffeeCardProps {
 
 
 export function CoffeeCard({coffeedata}:CoffeeCardProps){
+
+    const [renderAmount, setRenderAmount] = useState(0);
+
+    const { helloWorld } = useCart();
+
+    function handleIncreaseAmount(){
+        if(renderAmount >= 0 && renderAmount <= 98){
+            setRenderAmount(renderAmount + 1)
+        };
+        
+    };
+
+    function handleDecreaseAmount(){
+        if(renderAmount >= 1 && renderAmount <= 100){
+            setRenderAmount(renderAmount - 1)
+        };
+    };
+
+    function handleAddToCart(e: any){
+        e.preventDefault();
+        helloWorld()
+    };
+
+    useEffect(() => {
+
+    },[renderAmount,])
+
     return(
         <CoffeeContainer>
             <img src={coffeedata.image} alt="" />
@@ -35,11 +64,11 @@ export function CoffeeCard({coffeedata}:CoffeeCardProps){
                 </div>
                 <AmountContainer>
                 <Counter>
-                    <Minus size={14} weight="bold"/>
-                        <input type="number" placeholder="0" />
-                    <Plus size={14} weight="bold" />
+                    <Minus size={14} weight="bold" onClick={handleDecreaseAmount} />
+                        <input type="number" placeholder="0" value={renderAmount} />
+                    <Plus size={14} weight="bold" onClick={handleIncreaseAmount} />
                 </Counter>
-                <button><ShoppingCart size={20}/></button>
+                <button onClick={handleAddToCart}><ShoppingCart size={20}/></button>
                 </AmountContainer>
             </Price>
             

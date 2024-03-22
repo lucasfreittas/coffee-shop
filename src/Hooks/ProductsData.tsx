@@ -38,7 +38,8 @@ export function ProductsProvider({children}:{children: ReactNode}){
             description: 'O tradicional café feito com água quente e grãos moídos',
             tags: ['tradicional'],
             price: 9.90,
-            image: ExpressoTradicionalImg
+            image: ExpressoTradicionalImg,
+   
         },
         {
             id: 2,
@@ -46,7 +47,8 @@ export function ProductsProvider({children}:{children: ReactNode}){
             description: 'Expresso diluído, menos intenso que o tradicional',
             tags: ['tradicional'],
             price: 9.90,
-            image: ExpressoAmericanoImg
+            image: ExpressoAmericanoImg,
+      
         },
         {
             id: 3,
@@ -54,7 +56,8 @@ export function ProductsProvider({children}:{children: ReactNode}){
             description: 'Café expresso tradicional com espuma cremosa',
             tags: ['tradicional'],
             price: 9.90,
-            image: ExpressoCremosoImg
+            image: ExpressoCremosoImg,
+           
         },
         {
             id: 4,
@@ -62,7 +65,8 @@ export function ProductsProvider({children}:{children: ReactNode}){
             description: 'Bebida preparada com café expresso e cubos de gelo',
             tags: ['tradicional', 'Gelado'],
             price: 9.90,
-            image: ExpressoGeladoImg
+            image: ExpressoGeladoImg,
+           
         },
         {
             id: 5,
@@ -70,7 +74,8 @@ export function ProductsProvider({children}:{children: ReactNode}){
             description: 'Meio a meio de expresso tradicional com leite vaporizado',
             tags: ['tradicional', 'Com leite'],
             price: 9.90,
-            image: CafeComLeiteImg
+            image: CafeComLeiteImg,
+           
         },
         {
             id: 6,
@@ -78,7 +83,8 @@ export function ProductsProvider({children}:{children: ReactNode}){
             description: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
             tags: ['tradicional', 'com leite'],
             price: 9.90,
-            image: LatteImg
+            image: LatteImg,
+           
         },
         {
             id: 7,
@@ -86,7 +92,8 @@ export function ProductsProvider({children}:{children: ReactNode}){
             description: 'Bebida com canela feita de doses iguais de café, leite e espuma',
             tags: ['tradicional', 'com leite'],
             price: 9.90,
-            image: CappucinoImg
+            image: CappucinoImg,
+          
         },
         {
             id: 8,
@@ -94,7 +101,8 @@ export function ProductsProvider({children}:{children: ReactNode}){
             description: 'Café expresso misturado com um pouco de leite quente e espuma',
             tags: ['tradicional', 'com leite'],
             price: 9.90,
-            image: MacchiatoImg
+            image: MacchiatoImg,
+            
         },
         {
             id: 9,
@@ -102,7 +110,8 @@ export function ProductsProvider({children}:{children: ReactNode}){
             description: 'Café expresso com calda de chocolate, pouco leite e espuma',
             tags: ['tradicional', 'com leite'],
             price: 9.90,
-            image: MoccacinoImg
+            image: MoccacinoImg,
+          
         },
         {
             id: 10,
@@ -110,7 +119,8 @@ export function ProductsProvider({children}:{children: ReactNode}){
             description: 'Bebida feita com chocolate dissolvido no leite quente e café',
             tags: ['especial', 'com leite'],
             price: 9.90,
-            image: ChocolateQuenteImg
+            image: ChocolateQuenteImg,
+           
         },
         {
             id: 11,
@@ -118,7 +128,8 @@ export function ProductsProvider({children}:{children: ReactNode}){
             description: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
             tags: ['especial', 'alcoólico', 'gelado'],
             price: 9.90,
-            image: CubanoImg
+            image: CubanoImg,
+           
         },
         {
             id: 12,
@@ -126,7 +137,8 @@ export function ProductsProvider({children}:{children: ReactNode}){
             description: 'Bebida adocicada preparada com café e leite de coco',
             tags: ['especial'],
             price: 9.90,
-            image: HavianoImg
+            image: HavianoImg,
+           
         },
         {
             id: 13,
@@ -134,7 +146,8 @@ export function ProductsProvider({children}:{children: ReactNode}){
             description: 'Bebida preparada com grãos de café árabe e especiariasa',
             tags: ['especial'],
             price: 9.90,
-            image: ArabeImg
+            image: ArabeImg,
+            
         },
         {
             id: 14,
@@ -142,7 +155,8 @@ export function ProductsProvider({children}:{children: ReactNode}){
             description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
             tags: ['especial', 'alcoólico'],
             price: 9.90,
-            image: IrlandesImg
+            image: IrlandesImg,
+            
         },
         
     ];

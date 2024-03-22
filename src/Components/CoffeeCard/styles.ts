@@ -87,8 +87,17 @@ export const Counter = styled.div`
     border-radius: 0.6rem;
     height: 100%;
 
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+    
+
     > svg {
         color: ${props => props.theme.PURPLE_500};
+
+        &:hover{
+            cursor: pointer;
+        };
     };
 
     > input {
@@ -101,14 +110,18 @@ export const Counter = styled.div`
         line-height: 130%;
         color: ${props => props.theme.GRAY_900};
         width: 2rem;
+        cursor: default;
         &::-webkit-inner-spin-button,
         &::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
+        
         }
+        
 
         &::placeholder{
             color: ${props => props.theme.GRAY_900};
+        
         };
     };    
 `;
