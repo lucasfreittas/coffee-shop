@@ -26,8 +26,8 @@ export function AddressForm(){
                 <input type="text" placeholder='Bairro' defaultValue={userAddress.neighborhood} {...register('neighborhood')}/>
                 <input type="text" placeholder='Cidade' className='cityInput' defaultValue={userAddress.city} {...register('city')}/>
 
-                <select defaultValue={userAddress.district} {...register('district')}>
-                    <option value="" disabled selected>UF</option>       
+                <select defaultValue={userAddress.district || ""} {...register('district')}>
+                    <option value="" disabled >UF</option>       
                     <option value="AC">AC</option>
                     <option value="AL">AL</option>
                     <option value="AP">AP</option>

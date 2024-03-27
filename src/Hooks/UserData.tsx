@@ -61,8 +61,6 @@ export function UserProvider({children}:{children: ReactNode}){
             setComplement(parsedUserAddress.complement)
         };
 
-        console.log(userAddress)
-
     }, [userAddress]);
     
     useEffect(() => {

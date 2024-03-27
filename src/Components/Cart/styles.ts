@@ -71,6 +71,10 @@ export const ProductCard = styled.div`
                 font-weight: 700;
                 color: ${props => props.theme.GRAY_700};
 
+                &:hover{
+                    background-color: ${props => props.theme.GRAY_500};
+                };
+
                 > svg {
                     color: ${props => props.theme.PURPLE_500};
                 };
@@ -91,6 +95,11 @@ export const Counter = styled.div`
 
     > svg {
         color: ${props => props.theme.PURPLE_500};
+        
+        &:hover{
+            cursor: pointer;
+            color: ${props => props.theme.PURPLE_700};
+        };
     };
 
     > input {

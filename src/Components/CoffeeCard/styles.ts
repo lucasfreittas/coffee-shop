@@ -97,6 +97,7 @@ export const Counter = styled.div`
 
         &:hover{
             cursor: pointer;
+            color: ${props => props.theme.PURPLE_700};
         };
     };
 
@@ -141,6 +142,15 @@ export const AmountContainer = styled.div`
         padding: 0.8rem;
         border-radius: 0.6rem;
         height: 100%;
+        transition: all 0.1s ease-in-out;
+
+        &:hover{
+            background-color: ${props => props.theme.PURPLE_500};
+        };
+        
+        &:active{
+            scale: 0.95;
+        };
 
         svg {
             color: ${props => props.theme.WHITE};

@@ -21,7 +21,7 @@ export function CoffeeCard({coffeedata}:CoffeeCardProps){
 
     const [renderAmount, setRenderAmount] = useState(0);
 
-    const { helloWorld } = useCart();
+    const { addToCart } = useCart();
 
     function handleIncreaseAmount(){
         if(renderAmount >= 0 && renderAmount <= 98){
@@ -36,9 +36,15 @@ export function CoffeeCard({coffeedata}:CoffeeCardProps){
         };
     };
 
-    function handleAddToCart(e: any){
+    function handleAddToCart(e: any, coffeedata:CoffeeType){
         e.preventDefault();
-        helloWorld()
+        if(renderAmount > 0){
+            const coffeToCard = {...coffeedata, amount: renderAmount};
+            addToCart(coffeToCard)
+            setRenderAmount(0)
+        } else{
+            return
+        }
     };
 
     useEffect(() => {
@@ -51,7 +57,7 @@ export function CoffeeCard({coffeedata}:CoffeeCardProps){
             <Tags>
                 {coffeedata.tags && (
                     coffeedata.tags.map((tag) => (
-                        <span key={coffeedata.id}>{tag}</span>
+                        <span key={tag}>{tag}</span>
                     ))
                 )}
             </Tags>
@@ -65,10 +71,10 @@ export function CoffeeCard({coffeedata}:CoffeeCardProps){
                 <AmountContainer>
                 <Counter>
                     <Minus size={14} weight="bold" onClick={handleDecreaseAmount} />
-                        <input type="number" placeholder="0" value={renderAmount} />
+                        <input type="number" placeholder="0" value={renderAmount} readOnly />
                     <Plus size={14} weight="bold" onClick={handleIncreaseAmount} />
                 </Counter>
-                <button onClick={handleAddToCart}><ShoppingCart size={20}/></button>
+                <button onClick={(e) => handleAddToCart(e, coffeedata)}><ShoppingCart size={20}/></button>
                 </AmountContainer>
             </Price>
             

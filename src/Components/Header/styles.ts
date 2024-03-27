@@ -36,6 +36,7 @@ export const AddressButon = styled.button`
 
 export const CartButton = styled.button`
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     padding: 0.8rem;
@@ -45,4 +46,23 @@ export const CartButton = styled.button`
     svg {
         color: ${props => props.theme.YELLOW_700};
     };
+
+    p{
+        position: absolute;
+        font-family: 'Roboto';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: ${props => props.theme.WHITE};
+        background-color: ${props => props.theme.YELLOW_700};
+        width: 2rem;
+        height: 2rem;
+        padding-left: 0.1rem;
+        border-radius: 100%;
+        top: -25%;
+        right: -25%;
+
+    }
 `;

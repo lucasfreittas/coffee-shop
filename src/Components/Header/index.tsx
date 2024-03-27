@@ -5,8 +5,16 @@ import { ShoppingCart, MapPin } from "@phosphor-icons/react";
 import { NavLink } from "react-router-dom";
 
 import coffeShopLogo from '../../Assets/coffee-shop-logo.svg'
+import { useCart } from "../../Hooks/Cart";
+import { useEffect } from "react";
 
 export function Header(){
+    const { cart } = useCart();
+    console.log(cart)
+
+    useEffect(() => {
+        console.log(cart)
+    },[cart])
     return(
         <HeaderContainer>
             <NavLink to='/' title='Home'>
@@ -16,10 +24,13 @@ export function Header(){
                 <nav>
                     <AddressButon>
                         <MapPin size={22} weight="fill" />
-                        Porto Alegre, RS
+                        São Paulo, SP
                     </AddressButon>
                     <CartButton> 
                         <ShoppingCart size={22} weight="fill" />
+                        {cart.length > 0 && (
+                            <p>{cart.length}</p>
+                        )}
                     </CartButton>
                 </nav>
             </NavLink>
